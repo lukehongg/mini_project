@@ -1,5 +1,5 @@
 #include "manager.h"
-
+#include "product.h"
 
 int main(){
         Product p[20];

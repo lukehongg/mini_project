@@ -1,16 +1,17 @@
 #include "manager.h"
+#include "product.h"
 
-int selectDataNum(Product *p, int count){
+int selectDataNum(product *p, int count){
         int n;
         listProduct(p, count);
         printf("번호는?(취소:0)");
         scanf("%d",&n);
         return n;
 }
-// Program내 기능을 선택하는 함수
+// program내 기능을 선택하는 함수
 int selectMenu(){
         int menu;
-        printf("\n*** Fruits ***\n");
+        printf("\n*** fruits ***\n");
         printf("1. 제품조회\n");
         printf("2. 제품추가\n");
         printf("3. 제품수정\n");
@@ -24,27 +25,8 @@ int selectMenu(){
         scanf("%d", &menu);
         return menu;
 };
-int createProduct(Product *p){
-        printf("과일 이름은? ");
-        scanf(" %[^\n]s",p->name);
-        printf("가격은? ");
-        scanf("%d",&p->price);
-        printf("평점은?");
-        scanf("%d",&p->stars);
-        printf("총 평가수는?");
-        scanf("%d",&p->snum);
-        printf("==>추가성공!");
-        return 1;
-};
-//하나의 제춤을 추가하는 함수
-void readProduct(Product p){
-        printf("%s\n%d원\n", p.name,p.price);
-        for(int i=0; i<p.stars;i++) printf("@");
-        printf("(%d개)", p.snum);
-        printf("\n");
-};
 // 하나의 제품을 출력하는 함수
-void listProduct(Product *p, int count){
+void listProduct(product *p, int count){
         printf("\n*********************\n");
         for(int i=0; i<count; i++){
                 if(p[i].price == -1) continue;
@@ -54,27 +36,8 @@ void listProduct(Product *p, int count){
         printf("\n");
 };
 // 모든 제품 리스트를 출력하는 함수
-void updateProduct(Product *p){
-
-        printf("새로운 과일 이름은? ");
-        scanf(" %[^\n]s",p->name);
-        printf("새로운 가격은? ");
-        scanf("%d",&p->price);
-        printf("새로운 평점은?");
-        scanf("%d",&p->stars);
-        printf("새로운 총 평가수는?");
-        scanf("%d",&p->snum);
-        printf("==>수정성공!");
-
-};
 // 등록된 제품정보를 수정하는 함수
-int deleteProduct(Product *p){
-        p->price=-1;
-        printf("==>삭제됨\n");
-        return 1;
-};
-// 등록된 제품을 삭제하는 함수
-void searchNumStars(Product *p, int count){
+void searchNumStars(product *p, int count){
         int scnt =0;
         int star_count;
         printf("검색할 별의 수?(입력한 별의 수 이상의 제품조회) ");
@@ -90,7 +53,7 @@ void searchNumStars(Product *p, int count){
         }
         if(scnt==0) printf("==>검색된 제품 없음\n");
 };
-void searchProduct(Product *p, int count){
+void searchProduct(product *p, int count){
         int scnt =0;
         char name[40];
         printf("검색할 제품은?(입력한 제품조회) ");
@@ -106,7 +69,7 @@ void searchProduct(Product *p, int count){
         }
         if(scnt==0) printf("==>검색된 제품 없음\n");
 };
-void searchPrice(Product *p, int count){
+void searchPrice(product *p, int count){
 
         int scnt =0;
         int price;
@@ -123,8 +86,8 @@ void searchPrice(Product *p, int count){
         }
         if(scnt==0) printf("==>검색된 제품 없음\n");
 };
-void saveData(Product *p,int count){
-        FILE *fp;
+void saveData(product *p,int count){
+        file *fp;
         fp = fopen("product.txt","wt");
 
         for(int i=0; i<count; i++){
@@ -134,9 +97,9 @@ void saveData(Product *p,int count){
         fclose(fp);
         printf("==> 저장됨\n");
 };
-int loadData(Product *p){
+int loadData(product *p){
         int i=0;
-        FILE *fp = fopen("product.txt","rt");
+        file *fp = fopen("product.txt","rt");
         for(; i<20; i++){
                 fscanf(fp,"%d", &p[i].price);
                 fscanf(fp,"%d", &p[i].stars);
