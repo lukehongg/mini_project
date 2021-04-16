@@ -90,4 +90,20 @@ void searchNumStars(Product *p, int count){
         }
         if(scnt==0) printf("==>검색된 제품 없음\n");
 };
+void searchProduct(Product *p, int count){
+        int scnt =0;
+        char name[40];
+        printf("검색할 제품은?(입력한 제품조회) ");
+        scanf(" %[^\n]s", name);
+        printf("\n*********************\n");
+        for(int i=0; i<count; i++){
+                if(p[i].price == -1) continue;
+                if(strstr(p[i].name, name)){
+                        printf("%1d",i+1);
+                        readProduct(p[i]);
+                        scnt++;
+                }
+        }
+        if(scnt==0) printf("==>검색된 제품 없음\n");
+};
 
