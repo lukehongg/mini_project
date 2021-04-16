@@ -5,6 +5,13 @@ int main(){
         Product p[20];
         int function;
         int count=0;
+
+	FILE *fp = fopen("product.txt","rt");
+        if(fp == NULL) printf("\n==> 파일이 없습니다.");
+        else {
+                fclose(fp);
+                count = loadData(p);
+        }
 #ifdef DEBUG
 	printf("==> DEBUGMODE\n");
 #endif
@@ -41,6 +48,10 @@ int main(){
                                 deleteProduct(&p[n-1]);
                         }
                 }
+		else if(function == 5) saveData(p,count);
+                else if(function == 6) searchNumStars(p, count);
+                else if(function == 7) searchProduct(p, count);
+                else if(function == 8) searchPrice(p, count);
         }
         printf("==>종료\n");
         return 0;
