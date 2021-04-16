@@ -18,4 +18,4 @@ void searchNumStars(Product *p, int count);
 void searchProduct(Product *p, int count);
 void searchPrice(Product *p, int count);
 void saveData(Product *p, int count);
-
+int loadData(Product *p);
