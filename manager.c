@@ -134,4 +134,18 @@ void saveData(Product *p,int count){
         fclose(fp);
         printf("==> 저장됨\n");
 };
-
+int loadData(Product *p){
+        int i=0;
+        FILE *fp = fopen("product.txt","rt");
+        for(; i<20; i++){
+                fscanf(fp,"%d", &p[i].price);
+                fscanf(fp,"%d", &p[i].stars);
+                fscanf(fp,"%d", &p[i].snum);
+                fscanf(fp," %[^\n]s",p[i].name);
+                if(feof(fp)) break;
+        }
+        fclose(fp);
+        if(i>0) printf("==> 로딩성공!\n");
+        else printf("==>로딩실패!\n");
+        return i;
+};
