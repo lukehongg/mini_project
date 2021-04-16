@@ -74,4 +74,20 @@ int deleteProduct(Product *p){
         return 1;
 };
 // 등록된 제품을 삭제하는 함수
+void searchNumStars(Product *p, int count){
+        int scnt =0;
+        int star_count;
+        printf("검색할 별의 수?(입력한 별의 수 이상의 제품조회) ");
+        scanf("%d", &star_count);
+        printf("\n*********************\n");
+        for(int i=0; i<count; i++){
+                if(p[i].price == -1) continue;
+                if(p[i].stars >= star_count){
+                        printf("%1d",i+1);
+                        readProduct(p[i]);
+                        scnt++;
+                }
+        }
+        if(scnt==0) printf("==>검색된 제품 없음\n");
+};
 
