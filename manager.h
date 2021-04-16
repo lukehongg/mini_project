@@ -17,4 +17,5 @@ int deleteProduct(Product *p); // 등록된 제품을 삭제하는 함수
 void searchNumStars(Product *p, int count);
 void searchProduct(Product *p, int count);
 void searchPrice(Product *p, int count);
+void saveData(Product *p, int count);
 
