@@ -106,4 +106,21 @@ void searchProduct(Product *p, int count){
         }
         if(scnt==0) printf("==>검색된 제품 없음\n");
 };
+void searchPrice(Product *p, int count){
+
+        int scnt =0;
+        int price;
+        printf("검색할 가격은?(입력한 가격 이하의 제품조회) ");
+        scanf("%d", &price);
+        printf("\n*********************\n");
+        for(int i=0; i<count; i++){
+                if(p[i].price == -1) continue;
+                if(p[i].price <= price){
+                        printf("%1d",i+1);
+                        readProduct(p[i]);
+                        scnt++;
+                }
+        }
+        if(scnt==0) printf("==>검색된 제품 없음\n");
+};
 
