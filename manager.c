@@ -123,4 +123,15 @@ void searchPrice(Product *p, int count){
         }
         if(scnt==0) printf("==>검색된 제품 없음\n");
 };
+void saveData(Product *p,int count){
+        FILE *fp;
+        fp = fopen("product.txt","wt");
+
+        for(int i=0; i<count; i++){
+                if(p[i].price == -1) continue;
+                fprintf(fp,"%d %d %d %s\n",p[i].price,p[i].stars,p[i].snum, p[i].name);
+        }
+        fclose(fp);
+        printf("==> 저장됨\n");
+};
 
