@@ -1,7 +1,7 @@
-#ifdef PRODUCT
-#define PRODUCT
 #include <stdio.h>
 #include <string.h>
+#ifdef PRODUCT
+#define PRODUCT
 typedef struct{
     char name[40];
     int price;

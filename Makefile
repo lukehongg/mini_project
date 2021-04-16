@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -W -Wall
 TARGET = main
 DTARGET = main_debug
-OBJECTS = main.c manager.o
+OBJECTS = main.c manager.o product.o
 all : $(TARGET)
 $(TARGET) : $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^

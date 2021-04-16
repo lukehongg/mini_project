@@ -1,6 +1,5 @@
 #include "manager.h"
 #include "product.h"
-
 int selectDataNum(product *p, int count){
         int n;
         listProduct(p, count);
