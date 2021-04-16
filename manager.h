@@ -14,3 +14,4 @@ void readProduct(Product p); // 하나의 제품을 출력하는 함수
 void listProduct(Product *p, int count); // 모든 제품 리스트를 출력하는 함수
 void updateProduct(Product *p); // 등록된 제품정보를 수정하는 함수
 int deleteProduct(Product *p); // 등록된 제품을 삭제하는 함수
+void searchNumStars(Product *p, int count);
