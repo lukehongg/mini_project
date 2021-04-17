@@ -1,12 +1,10 @@
-#include <stdio.h>
-#include <string.h>
-#ifdef PRODUCT
+#ifndef PRODUCT
 #define PRODUCT
 typedef struct{
-    char name[40];
-    int price;
-    int stars;
-    int snum;
+	char name[40];
+	int price;
+	int stars;
+	int snum;
 } Product;
 int createProduct(Product *p);  //하나의 제춤을 추가하는 함수
 void readProduct(Product p); // 하나의 제품을 출력하는 함수
