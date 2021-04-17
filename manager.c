@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "manager.h"
 int selectDataNum(Product *p, int count){
         int n;
@@ -87,7 +88,7 @@ void searchPrice(Product *p, int count){
         if(scnt==0) printf("==>검색된 제품 없음\n");
 };
 void saveData(Product *p,int count){
-        file *fp;
+        FILE *fp;
         fp = fopen("product.txt","wt");
 
         for(int i=0; i<count; i++){
@@ -99,7 +100,7 @@ void saveData(Product *p,int count){
 };
 int loadData(Product *p){
         int i=0;
-        file *fp = fopen("product.txt","rt");
+        FILE *fp = fopen("product.txt","rt");
         for(; i<20; i++){
                 fscanf(fp,"%d", &p[i].price);
                 fscanf(fp,"%d", &p[i].stars);
